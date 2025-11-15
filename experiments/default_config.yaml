@@ -1,0 +1,46 @@
+# Default Experiment Configuration
+# Swarm Intelligence Optimization Framework
+
+experiment:
+  name: "default_experiment"
+  num_runs: 30
+  seed: 42
+  parallel: false
+  save_results: true
+  output_dir: "results"
+
+algorithms:
+  - name: "PSO"
+    pop_size: 50
+    max_iter: 1000
+    params:
+      w: 0.7
+      c1: 1.5
+      c2: 1.5
+
+  - name: "ABC"
+    pop_size: 50
+    max_iter: 1000
+    params:
+      limit: 100
+
+  - name: "GA"
+    pop_size: 50
+    max_iter: 1000
+    params:
+      crossover_rate: 0.8
+      mutation_rate: 0.1
+      selection_method: "tournament"
+
+problems:
+  - name: "Sphere"
+    dim: 10
+    params: {}
+
+  - name: "Rastrigin"
+    dim: 10
+    params: {}
+
+  - name: "Rosenbrock"
+    dim: 10
+    params: {}
