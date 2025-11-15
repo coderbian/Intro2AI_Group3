@@ -87,7 +87,14 @@ class BenchmarkRunner:
         Args:
             name: Algorithm name
             algorithm_factory: Factory function that creates algorithm instance
-                              Signature: (objective_func, dim, bounds, pop_size, max_iter, seed) -> BaseOptimizer
+                              Receives keyword args: objective_func, dim, bounds, pop_size, max_iter, seed
+                              Returns: BaseOptimizer instance
+                              
+        Example:
+            runner.add_algorithm(
+                'PSO',
+                lambda **kwargs: PSO(**kwargs)
+            )
         """
         self.algorithms[name] = algorithm_factory
     
